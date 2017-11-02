@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, logout, login
 from django.contrib import messages
 
-from karyawan.models import Akun , Karyawan
+from karyawan.models import Akun, Karyawan
 
 # Create your views here.
 
