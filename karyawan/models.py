@@ -21,6 +21,7 @@ class Jabatan (models.Model):
         return self.nama
 
 class Karyawan (models.Model):
+    #objects = None
     JENIS_KELAMIN_CHOICES = (
         ('pria', 'Pria'),
         ('wanita', 'Wanita'),

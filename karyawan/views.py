@@ -4,7 +4,11 @@ from django.conf import settings
 
 from karyawan.models import Karyawan
 
+
 @login_required(login_url=settings.LOGIN_URL)
 def profil(request):
-    karyawan = Karyawan.objects.get(id=request.session['karyawan_id'])
-    return render(request, 'profil.html', {"karyawan":karyawan})
+    if 'username' in request.session:
+        karyawan = Karyawan.objects.get(id=request.session['karyawan_id'])
+        return render(request, 'profil.html', {"karyawan": karyawan})
+    else:
+        return render(request, 'login.html', {})

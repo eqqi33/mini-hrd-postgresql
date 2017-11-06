@@ -26,4 +26,6 @@ urlpatterns = [
     url(r'^login/', homepage_views.login_view),
     url(r'^logout/', homepage_views.logout_view),
     url(r'^daftar_hadir/', kehadiran_views.daftar_hadir),
+    url(r'^pengajuan_izin/', kehadiran_views.pengajuan_izin),
+    url(r'^daftar_izin/', kehadiran_views.daftar_izin),
 ]

@@ -22,12 +22,12 @@ def login_view(request):
 					request.session['jenis_akun'] = akun.jenis_akun
 					request.session['username'] = request.POST['username']
 				except:
-					message.add_message(request, message.INFO, 'Akun ini belum terhubung dengan data karyawan, silahkan hubungi administrator')
+					messages.add_message(request, messages.INFO, 'Akun ini belum terhubung dengan data karyawan, silahkan hubungi administrator')
 				return redirect('/')
 			else:
-				message.add_message(request, message.INFO, 'User belum terverifikasi')
+				messages.add_message(request, messages.INFO, 'User belum terverifikasi')
 		else:
-			message.add_message(request, message.INFO, 'Username atau password anda salah')
+			messages.add_message(request, messages.INFO, 'Username atau password anda salah')
 	return render(request, 'login.html')
 
 def logout_view(request):
