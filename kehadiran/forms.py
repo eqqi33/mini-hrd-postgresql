@@ -27,5 +27,8 @@ class IzinForm(ModelForm):
                             }
         }
         widgets = {
-            'alasan':forms.Textarea(attrs={'cols':50,'rows':10})
+            'jenis_kehadiran':forms.Select(attrs={'class':'form-control'}),
+            'waktu_mulai':forms.DateInput(attrs={'class':'form-control'}),
+            'waktu_berhenti':forms.DateInput(attrs={'class':'form-control'}),
+            'alasan':forms.Textarea(attrs={'class':'form-control','cols':50,'rows':10}),
         }

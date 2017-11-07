@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 from homepage import views as homepage_views
 from karyawan import views as karyawan_views
@@ -23,9 +25,12 @@ from kehadiran import views as kehadiran_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', karyawan_views.profil),
+    url(r'^ganti_foto/', karyawan_views.ganti_foto),
     url(r'^login/', homepage_views.login_view),
     url(r'^logout/', homepage_views.logout_view),
-    url(r'^daftar_hadir/', kehadiran_views.daftar_hadir),
+    url(r'^daftar_hadir/$', kehadiran_views.daftar_hadir),
     url(r'^pengajuan_izin/', kehadiran_views.pengajuan_izin),
     url(r'^daftar_izin/', kehadiran_views.daftar_izin),
-]
+    url(r'^daftar_hadir/grafik/(?P<bulan>\d+)/(?P<tahun>\d+)$', kehadiran_views.tampil_grafik),
+    url(r'^daftar_hadir/cetak/(?P<bulan>\d+)/(?P<tahun>\d+)$', kehadiran_views.cetak_daftar_hadir),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
